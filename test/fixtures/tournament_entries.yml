@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  entry_reqs: MyString
+  format: MyString
+  future: false
+  past: false
+  ongoing: false
+  links: MyString
+  location: MyString
+  name: MyString
+  prizes: MyString
+  sponsor: MyString
+
+two:
+  entry_reqs: MyString
+  format: MyString
+  future: false
+  past: false
+  ongoing: false
+  links: MyString
+  location: MyString
+  name: MyString
+  prizes: MyString
+  sponsor: MyString

@@ -1,0 +1,12 @@
+Enter new match information
+<hr>
+<% form_for @matchEntry do |f| -%>
+  Date: <%= f.date_field :date %><br />
+  Links: <%= f.text_field :links %> <br />
+  Parent Tournament: <%= f.text_field :parentTournament %> <br />
+  Player 1: <%= f.text_field :player1 %> <br />
+  Player 2: <%= f.text_field :player2 %> <br />
+  Status: <%= f.text_field :status %> <br />
+  Time: <%= f.time_field :time %> <br />
+  <%= f.submit %>
+<% end -%>
