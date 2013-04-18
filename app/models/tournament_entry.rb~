@@ -1,13 +1,29 @@
 class TournamentEntry < ActiveRecord::Base
-  attr_accessible :entry_reqs, :format, :future, :links, :location, :name, :ongoing, :past, :prizes, :sponsor
+  attr_accessible :entry_reqs, :format, :future, :links, :location, :name, :ongoing, :past, :prizes, :sponsor, :status
+  #attr_accessor :status
+  
+
   
   def status
-    if(or :future == "true") then
+    if !self.future.blank?
       return "future"
-    elsif(:past == "true") then
-      return "past"
-    elsif(:ongoing == "true") then
+    elsif !self.ongoing.blank?
       return "ongoing"
+    elsif !self.past.blank?
+      return "past"
+    end
+  end
+  
+  def status=(val)
+    self.past = false
+    self.future = false
+    self.ongoing = false
+    if(val == "ongoing")
+      self.ongoing = true
+    elsif(val == "past")
+      self.past = true
+    elsif(val == "future")
+      self.future = true
     end
   end
   

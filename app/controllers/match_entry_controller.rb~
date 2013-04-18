@@ -5,7 +5,7 @@ class MatchEntryController < ApplicationController
   end
 
   def create
-    @matchEntry = MatchEntry.new(params[:matchentry])
+    @matchEntry = MatchEntry.new(params[:matchEntry])
     if matchEntry.save
       redirect_to new_matchEntry_path
     end
