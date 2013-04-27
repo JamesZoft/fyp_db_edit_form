@@ -1,5 +1,5 @@
 class TournamentEntryController < ApplicationController
-
+before_filter :authenticate_user!
   def new
     @tournamentEntry = TournamentEntry.new
   end
