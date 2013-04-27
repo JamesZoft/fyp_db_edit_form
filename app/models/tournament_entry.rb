@@ -1,6 +1,7 @@
 class TournamentEntry < ActiveRecord::Base
   attr_accessible :entry_reqs, :format, :future, :links, :location, :name, :ongoing, :past, :prizes, :sponsor, :status
   set_table_name "tournaments"  
+  resourcify
   def status
     if !self.future.blank?
       return "future"

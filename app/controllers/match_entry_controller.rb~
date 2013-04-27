@@ -1,5 +1,6 @@
 class MatchEntryController < ApplicationController
-
+before_filter :authenticate_user!
+user_signed_in?
   def new
     @matchEntry = MatchEntry.new
   end
@@ -12,7 +13,7 @@ class MatchEntryController < ApplicationController
   end
   
   def edit
-    
+    @matchEntry = MatchEntry.find(params[:id])
   end
   
   def update

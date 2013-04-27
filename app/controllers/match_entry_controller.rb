@@ -1,4 +1,5 @@
 class MatchEntryController < ApplicationController
+before_filter :authenticate_user!
 
   def new
     @matchEntry = MatchEntry.new
