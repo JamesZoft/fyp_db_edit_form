@@ -10,5 +10,22 @@ class MatchEntryController < ApplicationController
       redirect_to new_match_entry_path
     end
   end
+  
+  def edit
+    @matchEntry = MatchEntry.find(params[:id])
+  end
+  
+  def update
+		@matchEntry = MatchEntry.find(params[:id])
+		if @matchEntry.update_attributes(params[:match_entry])
+		  redirect_to(@matchEntry)
+		else
+		  render :edit
+		end
+  end
+  
+  def show
+    @matchEntry = MatchEntry.find(params[:id])
+  end
 
 end

@@ -1,0 +1,6 @@
+Display a match
+<% MatchEntry.find_each do |entry| %>
+  <% if entry.id == :id %>
+     <%= entry.inspect %> <br />
+  <% end %>
+<%end %>

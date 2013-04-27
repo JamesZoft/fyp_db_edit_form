@@ -1,0 +1,31 @@
+
+ <table summary="Match Form Fields">
+  <tr>
+   <th><%= f.label(:date,"Match date") %></th>
+   <td><%= f.text_field(:date) %></td>
+  </tr>
+  <tr>
+   <th><%= f.label(:links, "Match URL links") %></th>
+   <td><%= f.text_field(:links) %></td>
+  </tr>
+  <tr>
+   <th><%= f.label(:parentTournament, "Parent tournament") %></th>
+   <td><%= f.text_field(:parentTournament) %></td>
+  </tr>
+  <tr>
+   <th><%= f.label(:player1, "Player 1") %></th>
+   <td><%= f.text_field(:player1) %></td>
+  </tr>
+  <tr>
+   <th><%= f.label(:player2, "Player 2") %></th>
+   <td><%= f.text_field(:player2) %></td>
+  </tr>
+  <tr>
+   <th><%= f.label(:status, "Match status") %></th>
+   <td><%= f.text_field(:status) %></td>
+  </tr>
+  <tr>
+   <th><%= f.label(:time, "Match time") %></th>
+   <td><%= f.time_select(:time) %></td>
+  </tr>
+ </table>

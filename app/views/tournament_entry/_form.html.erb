@@ -1,0 +1,42 @@
+<table summary="Tournament Form Fields">
+<tr>
+ <th><%= f.label(:entry_reqs,"Entry requirements") %></th>
+ <td><%= f.text_field(:entry_reqs) %></td>
+</tr>
+<tr>
+ <th><%= f.label(:links, "Match URL links") %></th>
+ <td><%= f.text_field(:links) %></td>
+</tr>
+<tr>
+ <th><%= f.label(:format, "Format") %></th>
+ <td><%= f.text_field(:format) %></td>
+</tr>
+<tr>
+ <th><%= f.label(:future, "Future") %></th>
+ <td><%= f.radio_button(:status, :future) %></td>
+</tr>
+<tr>
+ <th><%= f.label(:past, "Past") %></th>
+ <td><%= f.radio_button(:status, :past) %></td>
+</tr>
+<tr>
+ <th><%= f.label(:ongoing, "Ongoing") %></th>
+ <td><%= f.radio_button(:status, :ongoing) %></td>
+</tr>
+<tr>
+ <th><%= f.label(:location, "Location") %></th>
+ <td><%= f.text_field(:location) %></td>
+</tr>
+<tr>
+ <th><%= f.label(:name, "Tournament name") %></th>
+ <td><%= f.text_field(:name) %></td>
+</tr>
+<tr>
+ <th><%= f.label(:prizes, "Prizes") %></th>
+ <td><%= f.text_field(:prizes) %></td>
+</tr>
+<tr>
+ <th><%= f.label(:sponsor, "Sponsor(s)") %></th>
+ <td><%= f.text_field(:sponsor) %></td>
+</tr>
+</table>

@@ -1,0 +1,11 @@
+Edit match information
+<hr>
+<%= form_for(@matchEntry, :url => {:action => 'update', :id => @matchEntry.id}) do |f| %>
+<%= render(:partial => "form", :locals => {:f => f}) %>  
+<%= submit_tag("Update Match") %>
+<% end %>
+<hr>
+Display all matches
+<% MatchEntry.find_each do |entry| %>
+  <%= entry.inspect %> <br />
+<%end %>

@@ -1,0 +1,41 @@
+<table summary="Tournament Form Fields">
+<tr>
+ <th><%= f.label(:entry_reqs,"Entry requirements") %></th>
+ <td><%= f.text_field(:entry_reqs) %></td>
+</tr>
+<tr>
+ <th><%= f.label(:links, "Match URL links") %></th>
+ <td><%= f.text_field(:links) %></td>
+</tr>
+<tr>
+ <th><%= f.label(:format, "Format") %></th>
+ <td><%= f.text_field(:format) %></td>
+</tr>
+<tr>
+ <th><%= f.label(:future, "Future") %></th>
+ <td><%= f.radio_button(:status, :future) %></td>
+</tr>
+<tr>
+ <th><%= f.label(:player2, "Player 2") %></th>
+ <td><%= f.text_field(:player2) %></td>
+</tr>
+<tr>
+ <th><%= f.label(:status, "Match status") %></th>
+ <td><%= f.text_field(:status) %></td>
+</tr>
+<tr>
+ <th><%= f.label(:time, "Match time") %></th>
+ <td><%= f.time_select(:time) %></td>
+</tr>
+</table>
+
+  Entry requirements: <%= f.text_field :entry_reqs %><br />
+  Links: <%= f.text_field :links %> <br />
+  Format: <%= f.text_field :format %> <br />
+  Future: <%= f.radio_button(:status, :future) %> <br />
+  Past: <%= f.radio_button(:status, :past) %> <br />
+  Ongoing: <%= f.radio_button(:status, :ongoing) %> <br />
+  Location: <%= f.text_field :location %> <br />
+  Name: <%= f.text_field :name %> <br />
+  Prizes: <%= f.text_field :prizes %> <br />
+  Sponsor: <%= f.text_field :sponsor %> <br />
