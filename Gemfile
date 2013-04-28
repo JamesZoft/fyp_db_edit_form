@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'pry'
+
 gem 'devise'
 gem 'cancan'
 gem 'rolify'
+
+gem 'gcm_on_rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
