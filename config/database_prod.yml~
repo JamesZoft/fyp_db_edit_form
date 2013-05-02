@@ -5,10 +5,9 @@
 #   gem 'sqlite3'
 development:
   adapter: mysql2
-  username: james_fyp
+  username: james_yp
   password: shei0430
   database: james_fyp
-  host: localhost
   
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,5 +22,5 @@ production:
   adapter: mysql2
   username: james_fyp
   password: shei0430
-  host: localhost
+  host:localhost
   database: james_fyp

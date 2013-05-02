@@ -1,6 +1,8 @@
 class TournamentEntry < ActiveRecord::Base
+  has_many :subscriptions
+  has_many :devices, :class_name => "Gcm::Device"
   attr_accessible :entry_reqs, :format, :future, :links, :location, :name, :ongoing, :past, :prizes, :sponsor, :status
-  #set_table_name "tournaments"  
+  set_table_name "tournaments"  
   resourcify
   def status
     if !self.future.blank?

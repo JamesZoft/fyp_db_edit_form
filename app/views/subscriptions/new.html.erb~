@@ -1,0 +1,10 @@
+<%= form_for(@subscription) do |s| %>
+  <div class="field">
+  <%= f.label :device_id %><br />
+  <%= f.text_field :device_id %>
+  </div>
+  <div class="field">
+    <%= f.label :tournament_entry_id %><br />
+    <%= f.text_field :tournament_entry_id %>
+  </div>
+<% end %>
