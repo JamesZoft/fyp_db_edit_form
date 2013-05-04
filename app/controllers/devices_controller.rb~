@@ -42,7 +42,7 @@ class DevicesController < ApplicationController
     @device = Gcm::Device.new(params[:gcm_device])
     respond_to do |format|
       if @device.save
-        format.html { redirect_to device_url(@device), notice: 'Device was successfully created.' }
+        #format.html { redirect_to device_url(@device), notice: 'Device was successfully created.' }
         format.json { render json: @device, status: :created, location: @device }
       else
         format.html { render action: "new" }

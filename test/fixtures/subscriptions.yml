@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tournament_entry: 
+  device: 
+  match_entry: 
+
+two:
+  tournament_entry: 
+  device: 
+  match_entry: 

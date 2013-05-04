@@ -1,0 +1,145 @@
+-- MySQL dump 10.13  Distrib 5.5.30, for Linux (x86_64)
+--
+-- Host: localhost    Database: james_fyp
+-- ------------------------------------------------------
+-- Server version	5.5.30-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `matches`
+--
+
+DROP TABLE IF EXISTS `matches`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `matches` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` date DEFAULT NULL,
+  `time` time DEFAULT NULL,
+  `player1` varchar(255) DEFAULT NULL,
+  `player2` varchar(255) DEFAULT NULL,
+  `parentTournament` varchar(255) DEFAULT NULL,
+  `links` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `matches`
+--
+
+LOCK TABLES `matches` WRITE;
+/*!40000 ALTER TABLE `matches` DISABLE KEYS */;
+INSERT INTO `matches` VALUES (5,'2013-05-23','18:00:00','MVP','Destiny','IeSF 2013 World Championship',NULL,'0000-00-00 00:00:00','2013-03-30 14:26:06','future'),(6,'2013-01-20','17:00:00','IdrA','Bomber','E-Sport SM 2012-2013',NULL,'0000-00-00 00:00:00','2013-03-30 14:26:28','past'),(7,'2013-06-10','16:00:00','MKP','Grubby','TeSL 2012-2013 Second Half Season 1',NULL,'0000-00-00 00:00:00','2013-03-30 14:26:39','future'),(8,'2013-07-14','19:00:00','Squirtle','Mvp','EPS Germany Spring 2013',NULL,'0000-00-00 00:00:00','2013-03-30 14:26:47','future'),(10,'2013-02-05','19:00:00','HuK','IdrA','E-Sport SM 2012-2013',NULL,'0000-00-00 00:00:00','0000-00-00 00:00:00','past'),(11,'2013-04-25','11:44:00','','','gh','htv','2013-04-25 13:01:11','2013-04-25 13:01:11','');
+/*!40000 ALTER TABLE `matches` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schema_migrations`
+--
+
+DROP TABLE IF EXISTS `schema_migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `schema_migrations` (
+  `version` varchar(255) NOT NULL,
+  UNIQUE KEY `unique_schema_migrations` (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schema_migrations`
+--
+
+LOCK TABLES `schema_migrations` WRITE;
+/*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
+INSERT INTO `schema_migrations` VALUES ('20121125152905'),('20130329141655'),('20130329143033'),('20130330142110');
+/*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tournament_requests`
+--
+
+DROP TABLE IF EXISTS `tournament_requests`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tournament_requests` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tourny_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tournament_requests`
+--
+
+LOCK TABLES `tournament_requests` WRITE;
+/*!40000 ALTER TABLE `tournament_requests` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tournament_requests` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tournaments`
+--
+
+DROP TABLE IF EXISTS `tournaments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tournaments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `start_date` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `sponsor` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `prizes` varchar(255) DEFAULT NULL,
+  `entry_reqs` varchar(255) DEFAULT NULL,
+  `format` varchar(255) DEFAULT NULL,
+  `links` varchar(255) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `subscribed` tinyint(1) DEFAULT NULL,
+  `ongoing` tinyint(1) DEFAULT NULL,
+  `past` tinyint(1) DEFAULT NULL,
+  `future` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tournaments`
+--
+
+LOCK TABLES `tournaments` WRITE;
+/*!40000 ALTER TABLE `tournaments` DISABLE KEYS */;
+INSERT INTO `tournaments` VALUES (5,'2013-05-01','IeSF 2013 World Championship','SK telecom','South Korea','5000000 SKW / ~EUR3395 / ~$4418','unknown','unknown','http://wiki.teamliquid.net/starcraft2/IeSF_2013_World_Championship','0000-00-00 00:00:00','0000-00-00 00:00:00',1,0,0,1),(6,'2013-01-10','E-Sport SM 2012-2013','Telia, SteelSeries, Junkyard, Komplett.se, Nojesbladet','Sweden','150000 SEK / ~EUR17600 / ~$23600','Offline qualifiers','1v1','http://wiki.teamliquid.net/starcraft2/E-Sport_SM_2012-2013/Finals','0000-00-00 00:00:00','0000-00-00 00:00:00',1,0,0,1),(7,'2013-06-01','TeSL 2012-2013 Second Half Season 1','7-eleven','Taiwan','440000 NTD / ~EUR11288 / ~$14689','unknown','Round Robin, Playoffs','http://wiki.teamliquid.net/starcraft2/Taiwan_eSports_League/2012-2013/Second_Half','0000-00-00 00:00:00','0000-00-00 00:00:00',1,1,0,0),(8,'2013-07-01','EPS Germany Spring 2013','RaidCall, SteelSeries, SmartChecker, gamed!de Gameserver','Germany','EUR4700 / ~$6115','entryreqs4','unknown','http://wiki.teamliquid.net/starcraft2/ESL_Pro_Series_Germany/Spring_Season_2013','0000-00-00 00:00:00','0000-00-00 00:00:00',0,1,0,0),(11,NULL,'','','','','','','','2013-04-27 17:08:08','2013-04-27 17:08:08',NULL,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `tournaments` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2013-04-27 18:47:41
+

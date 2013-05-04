@@ -1,0 +1,34 @@
+        new_user_session GET    /users/sign_in(.:format)               devise/sessions#new
+            user_session POST   /users/sign_in(.:format)               devise/sessions#create
+    destroy_user_session DELETE /users/sign_out(.:format)              devise/sessions#destroy
+           user_password POST   /users/password(.:format)              devise/passwords#create
+       new_user_password GET    /users/password/new(.:format)          devise/passwords#new
+      edit_user_password GET    /users/password/edit(.:format)         devise/passwords#edit
+                         PUT    /users/password(.:format)              devise/passwords#update
+cancel_user_registration GET    /users/cancel(.:format)                devise/registrations#cancel
+       user_registration POST   /users(.:format)                       devise/registrations#create
+   new_user_registration GET    /users/sign_up(.:format)               devise/registrations#new
+  edit_user_registration GET    /users/edit(.:format)                  devise/registrations#edit
+                         PUT    /users(.:format)                       devise/registrations#update
+                         DELETE /users(.:format)                       devise/registrations#destroy
+           match_entries GET    /match_entries(.:format)               match_entry#index
+                         POST   /match_entries(.:format)               match_entry#create
+         new_match_entry GET    /match_entries/new(.:format)           match_entry#new
+        edit_match_entry GET    /match_entries/:id/edit(.:format)      match_entry#edit
+             match_entry GET    /match_entries/:id(.:format)           match_entry#show
+                         PUT    /match_entries/:id(.:format)           match_entry#update
+                         DELETE /match_entries/:id(.:format)           match_entry#destroy
+      tournament_entries GET    /tournament_entries(.:format)          tournament_entry#index
+                         POST   /tournament_entries(.:format)          tournament_entry#create
+    new_tournament_entry GET    /tournament_entries/new(.:format)      tournament_entry#new
+   edit_tournament_entry GET    /tournament_entries/:id/edit(.:format) tournament_entry#edit
+        tournament_entry GET    /tournament_entries/:id(.:format)      tournament_entry#show
+                         PUT    /tournament_entries/:id(.:format)      tournament_entry#update
+                         DELETE /tournament_entries/:id(.:format)      tournament_entry#destroy
+                 devices GET    /devices(.:format)                     devices#index
+                         POST   /devices(.:format)                     devices#create
+              new_device GET    /devices/new(.:format)                 devices#new
+             edit_device GET    /devices/:id/edit(.:format)            devices#edit
+                  device GET    /devices/:id(.:format)                 devices#show
+                         PUT    /devices/:id(.:format)                 devices#update
+                         DELETE /devices/:id(.:format)                 devices#destroy
