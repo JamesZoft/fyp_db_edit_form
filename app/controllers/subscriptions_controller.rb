@@ -1,5 +1,5 @@
 class SubscriptionsController < ApplicationController
-
+  skip_before_filter :verify_authenticity_token, :only => [:create]
   def index
     @subscription = Subscription.all
 

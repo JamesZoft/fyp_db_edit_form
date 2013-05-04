@@ -32,6 +32,7 @@ before_filter :authenticate_user!
 	      new_notification.data = {:registration_ids => [subscription.device.registration_id], :data => {:message_text => @matchEntry}}
 	      new_notification.save
 	    end
+            }
 	    Gcm::Notification.send_notifications
 		else
 		  render :edit

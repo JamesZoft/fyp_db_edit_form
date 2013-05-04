@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130504134503) do
+ActiveRecord::Schema.define(:version => 20130504165245) do
 
   create_table "gcm_devices", :force => true do |t|
     t.string   "registration_id",    :null => false
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(:version => 20130504134503) do
 
   create_table "subscriptions", :force => true do |t|
     t.integer  "tournament_entry_id"
-    t.integer  "device_id"
+    t.string   "device_id"
     t.integer  "match_entry_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
