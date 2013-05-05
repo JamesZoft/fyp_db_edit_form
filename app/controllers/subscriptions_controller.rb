@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:create]
   def index
-    @subscription = Subscription.all
+    @subscriptions = Subscription.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -9,8 +9,8 @@ class SubscriptionsController < ApplicationController
     end
   end
 
-  # GET /devices/new
-  # GET /devices/new.json
+  # GET /subscriptions/new
+  # GET /subscriptions/new.json
   def new
     @subscription = Subscription.new
 
@@ -20,10 +20,16 @@ class SubscriptionsController < ApplicationController
     end
   end
 
-  # GET /matches/1/edit
-#  def edit
- #   @match = Match.find(params[:id])
- # end
+  # GET /subscriptions/1
+  # GET /subscriptions/1.json
+  def show
+    @subscription = Subscription.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @subscription }
+    end
+  end
 
   # POST /devices
   # POST /devices.json
@@ -38,4 +44,17 @@ class SubscriptionsController < ApplicationController
       end
     end
   end
+  
+  # DELETE /devices/1
+  # DELETE /devices/1.json
+  def destroy
+    @subscription = Subscription.find(params[:id])
+    @subscription.destroy
+
+    respond_to do |format|
+      #format.html { redirect_to subscriptions_url }
+      format.json { head :no_content }
+    end
+  end
+  
 end
