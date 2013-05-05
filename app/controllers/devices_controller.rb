@@ -4,8 +4,8 @@ class DevicesController < ApplicationController
     @devices = Gcm::Device.all
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @devices }
+#      format.html # index.html.erb
+      format.json { render json: device_url(@devices) }
     end
   end
 
@@ -15,8 +15,8 @@ class DevicesController < ApplicationController
     @device = Gcm::Device.new
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @device }
+#      format.html # new.html.erb
+      format.json { render json: device_url(@device) }
     end
   end
 
@@ -27,10 +27,10 @@ class DevicesController < ApplicationController
     respond_to do |format|
       if @device.save
         #format.html { redirect_to device_url(@device), notice: 'Device was successfully created.' }
-        format.json { render json: @device, status: :created, location: @device }
+        format.json { render json: device_url(@device), status: :created, location: device_url(@device) }
       else
         format.html { render action: "new" }
-        format.json { render json: @device.errors, status: :unprocessable_entity }
+        format.json { render json: device_url(@device.errors), status: :unprocessable_entity }
       end
     end
   end
