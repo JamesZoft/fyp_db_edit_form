@@ -23,10 +23,16 @@ before_filter :authenticate_user!
 		if @matchEntry.update_attributes(params[:match_entry])
 		  redirect_to(@matchEntry)
 		  subscriptions = Subscription.all
+		  Rails.logger.debug("matchentry id: #{@matchEntry.id}")
 		  subscriptions.each do |subscription| 
-		    if(subscription != nil and subscription.match_entry 
-!= nil)
+		    Rails.logger.debug("subscription: #{subscription.inspect}")
+		    if(subscription != nil and subscription.match_entry != nil)
+#                    Rails.logger.debug(subscription.match_entry.id)
+                    Rails.logger.debug("asd")
+  #                  Rails.logger.debug(@matchEntry.id)
 	        if(subscription.match_entry.id == @matchEntry.id)
+		  Rails.logger.debug("inside == ")
+                  
 	          new_notification = Gcm::Notification.new
 	          new_notification.device = subscription.device
 	          new_notification.collapse_key = "new_match_data_available"
