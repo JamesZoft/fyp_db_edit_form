@@ -22,7 +22,8 @@ before_filter :authenticate_user!
 		  redirect_to(@tournamentEntry)
 		  subscriptions = Subscription.all
 		  subscriptions.each do |subscription| 
-		    if(subscription != nil and susbcription.match_entry != nil)
+		    if(subscription != nil and subscription.match_entry 
+!= nil)
 	        if(subscription.tournament_entry.id == @tournamentEntry.id)
 	          new_notification = Gcm::Notification.new
 	          new_notification.device = subscription.device
