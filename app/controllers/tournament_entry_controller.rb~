@@ -21,15 +21,19 @@ before_filter :authenticate_user!
 		if @tournamentEntry.update_attributes(params[:tournament_entry])
 		  redirect_to(@tournamentEntry)
 		  subscriptions = Subscription.all
-		  subscriptions.each { |subscription| 
-	    if(subscription.tournament_entry.id == @tournamentEntry.id)
-	      new_notification = Gcm::Notification.new
-	      new_notification.device = subscription.device
-	      new_notification.collapse_key = "new_tournament_data_available"
-	      new_notification.delay_while_idle = true
-	      new_notification.data = {:registration_ids => [subscription.device.registration_id], :data => {:message_text => @tournamentEntry}}
-	      new_notification.save
+		  subscriptions.each do |subscription| 
+		    if(subscription != nil)
+	        if(subscription.tournament_entry.id == @tournamentEntry.id)
+	          new_notification = Gcm::Notification.new
+	          new_notification.device = subscription.device
+	          new_notification.collapse_key = "new_tournament_data_available"
+	          new_notification.delay_while_idle = true
+	          new_notification.data = {:registration_ids => [subscription.device.registration_id], :data => {:message_text => @tournamentEntry}}
+	          new_notification.save
+	        end
+	      end
 	    end
+	    Gcm::Notification.send_notifications
 		else
 		  render :edit
 		end
