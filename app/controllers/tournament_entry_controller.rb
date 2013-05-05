@@ -22,13 +22,14 @@ before_filter :authenticate_user!
 		  redirect_to(@tournamentEntry)
 		  subscriptions = Subscription.all
 		  subscriptions.each do |subscription| 
-		    if(subscription != nil and subscription.match_entry != nil)
-	        if(subscription.tournament_entry.id == @tournamentEntry.id)
+		    if(subscription != nil)
+	        if(subscription.tournament_entry_id == @tournamentEntry.id)
+		  device = Gcm::Device.where(:registration_id => subscription.device_registration_id).first!
 	          new_notification = Gcm::Notification.new
-	          new_notification.device = subscription.device
+	          new_notification.device = device
 	          new_notification.collapse_key = "new_tournament_data_available"
 	          new_notification.delay_while_idle = true
-	          new_notification.data = {:registration_ids => [subscription.device.registration_id], :data => {:message_text => @tournamentEntry}}
+	          new_notification.data = {:registration_ids => [subscription.device_registration_id], :data => {:message_text => @tournamentEntry}}
 	          new_notification.save
 	        end
 	      end
