@@ -23,7 +23,7 @@ before_filter :authenticate_user!
 		if @matchEntry.update_attributes(params[:match_entry])
 		  redirect_to(@matchEntry)
 		  subscriptions = Subscription.all
-		  subscriptions.each { |subscription| 
+		  subscriptions.each do |subscription| 
 		    if(subscription != nil)
 	        if(subscription.match_entry.id == @matchEntry.id)
 	          new_notification = Gcm::Notification.new
@@ -34,7 +34,7 @@ before_filter :authenticate_user!
 	          new_notification.save
 	        end
 	      end
-      }
+      end
 	    Gcm::Notification.send_notifications
 		else
 		  render :edit
