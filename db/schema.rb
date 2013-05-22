@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505140800) do
+ActiveRecord::Schema.define(:version => 20130505180323) do
 
   create_table "gcm_devices", :force => true do |t|
     t.string   "registration_id",    :null => false
@@ -71,16 +71,14 @@ ActiveRecord::Schema.define(:version => 20130505140800) do
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
   create_table "subscriptions", :force => true do |t|
-    t.integer  "tournament_entry_id"
     t.string   "device_registration_id"
-    t.integer  "match_entry_id"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
+    t.integer  "model_id"
+    t.string   "model_type"
   end
 
   add_index "subscriptions", ["device_registration_id"], :name => "index_subscriptions_on_device_id"
-  add_index "subscriptions", ["match_entry_id"], :name => "index_subscriptions_on_match_entry_id"
-  add_index "subscriptions", ["tournament_entry_id"], :name => "index_subscriptions_on_tournament_entry_id"
 
   create_table "tournament_entries", :force => true do |t|
     t.string   "entry_reqs"

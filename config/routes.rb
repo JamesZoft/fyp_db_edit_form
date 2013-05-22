@@ -1,7 +1,7 @@
 FypDbeditForm::Application.routes.draw do
   #root :to => '#index'
   devise_for :users
-  
+  match "/users/sign_up" => redirect("/users/sign_in")  
   resources :match_entries, :controller => :match_entry
   #match "/match_entry/new" => "match_entry#new", :as => :match_entries
   resources :tournament_entries, :controller => :tournament_entry
